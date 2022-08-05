@@ -8,18 +8,24 @@
       </mat-toolbar-row>
 </mat-toolbar>
 <div fxLayout="row" fxLayoutAlign="space-between">
-      <div fxFlex="10" style="background-color: #DDD; padding: 20px; height: 100vh;"> 
-            <button mat-raised-button style="margin-bottom: 10px;">Basic</button> 
-            <mat-divider></mat-divider>
-            <button mat-raised-button style="margin-bottom: 10px;">services</button>
-            <mat-list>
-                  <mat-list-item>services</mat-list-item>
-                  <mat-divider></mat-divider>
-                  <mat-list-item>patient</mat-list-item>
-                  <mat-divider></mat-divider>
-                  <mat-list-item>Item 3</mat-list-item>
-            </mat-list>
+      <div fxFlex="10" fxLayout="column" style="background-color: #DDD; padding: 5px; height: 90vh;">
+            
+                  <div fxFlex="30">
+                        <mat-list>
+                              <mat-list-item><button mat-raised-button>services</button></mat-list-item>
+                              <mat-divider></mat-divider>
+                              <mat-list-item><button mat-raised-button>patient</button></mat-list-item>
+                              <mat-divider></mat-divider>
+                              <mat-list-item><button mat-raised-button>rashid</button></mat-list-item>
+                        </mat-list>
+                  </div>
+                  <div fxFlex="40" > </div>
+                  <div fxFlex="30">
+                        <button mat-raised-button>patient</button> 
+                        <mat-divider></mat-divider>
+                        <button mat-raised-button style="margin-bottom: 10px;">services</button>
+                  </div>
       </div>
-      <div fxFlex style="background-color: #000; padding: 20px; color: aliceblue;"> second section </div>
+      <div fxFlex style="background-color: #000; padding: 5px; color: aliceblue;"> second section </div>
       <!-- <div fxFlex style="background-color: rgb(185, 13, 13); padding: 20px;"> third section</div> -->
 </div>
