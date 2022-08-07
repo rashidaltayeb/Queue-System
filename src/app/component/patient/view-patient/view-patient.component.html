@@ -34,10 +34,13 @@
                                                 <div [ngClass]="'one'" style="color: red;">Not Service</div>
                                           </div>
                                           <div *ngIf="row.service == 2">
-                                                <div [ngClass]="'two'" style="color: rgb(255, 176, 6);">on Service</div>
+                                                <div [ngClass]="'two'" style="color: rgb(255, 176, 6);">on Hold</div>
                                           </div>
                                           <div *ngIf="row.service == 3">
-                                                <div [ngClass]="'there'" style="color: green;">completed</div>
+                                                <div [ngClass]="'two'" style="color: rgb(248, 244, 0);">on Service</div>
+                                          </div>
+                                          <div *ngIf="row.service == 4">
+                                                <div [ngClass]="'there'" style="color: rgb(26, 241, 26);">completed</div>
                                           </div>
                               </td>
                         </ng-container>
@@ -52,21 +55,3 @@
             </div>
       </div>
 </div>
-<!-- <div *ngFor="let id of ids">
-      Id is {{id}}
-      <div *ngIf="id == 1">
-            <div [ngClass]="'one'">on hold</div>
-      </div>
-      <div *ngIf="id == 2">
-            <div [ngClass]="'two'">on progress</div>
-      </div>
-      <div *ngIf="id == 3">
-            <div [ngClass]="'there'">completed</div>
-      </div>
-      <div *ngIf="id == 4">
-            <div [ngClass]="'four'">not coming</div>
-      </div>
-      <div *ngIf="id < 4">
-            <div [ngClass]="'four'">deleted</div>
-      </div>
-</div> -->

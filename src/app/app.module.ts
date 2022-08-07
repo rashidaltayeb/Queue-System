@@ -11,6 +11,8 @@ import { SideNavComponent } from './component/side-nav/side-nav.component';
 import { PatientComponent } from './component/patient/patient.component';
 import { NewPatientComponent } from './component/patient/new-patient/new-patient.component';
 import { ViewPatientComponent } from './component/patient/view-patient/view-patient.component';
+import { WaitingComponent } from './component/waiting/waiting.component';
+import { TicketComponent } from './component/ticket/ticket.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { ViewPatientComponent } from './component/patient/view-patient/view-pati
     PatientComponent,
     NewPatientComponent,
     ViewPatientComponent,
+    WaitingComponent,
+    TicketComponent,
   ],
   imports: [
     BrowserModule,

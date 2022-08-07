@@ -14,6 +14,10 @@ export class PatientService {
   }
   // post
   createPatient(data: any) {
-    return this.http.post<any>(this.URL,data)
+    return this.http.post<any>(this.URL, data);
+  }
+  // put -> change service status
+  startService(data: any) {
+    return this.http.put<any>(this.URL, data)
   }
 }

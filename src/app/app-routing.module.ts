@@ -4,6 +4,8 @@ import { AppComponent } from './app.component';
 import { NewPatientComponent } from './component/patient/new-patient/new-patient.component';
 import { PatientComponent } from './component/patient/patient.component';
 import { ViewPatientComponent } from './component/patient/view-patient/view-patient.component';
+import { TicketComponent } from './component/ticket/ticket.component';
+import { WaitingComponent } from './component/waiting/waiting.component';
 
 const routes: Routes = [
   {
@@ -12,13 +14,21 @@ const routes: Routes = [
     children: [
       {
         path: 'view',
-        component: ViewPatientComponent
+        component: ViewPatientComponent,
       },
       {
         path: 'new',
         component: NewPatientComponent,
       },
     ],
+  },
+  {
+    path: 'waiting',
+    component: WaitingComponent,
+  },
+  {
+    path: 'service',
+    component: TicketComponent,
   },
 ];
 
