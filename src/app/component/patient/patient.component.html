@@ -1,0 +1,13 @@
+<div class="container" fxLayout="row" fxLayoutAlign="space-between">
+      <div class="patient-dataTable" fxFlex="85">
+            <router-outlet> </router-outlet>
+      </div>
+      <div fxFlex="15">
+            <mat-list>
+                  <mat-list-item routerLink="new"><button mat-raised-button>new paint</button></mat-list-item>
+                  <mat-divider></mat-divider>
+                  <mat-list-item routerLink="view"><button mat-raised-button>view</button></mat-list-item>
+                  <mat-divider></mat-divider>
+            </mat-list>
+      </div>
+</div>

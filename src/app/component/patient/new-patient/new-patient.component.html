@@ -1,0 +1,30 @@
+<div class="pro-container">
+      <div class="title-info">
+            <H1>Please Fill Patient From Appointment</H1>
+      </div>
+      <form [formGroup]="patientForm">
+            <!-- Patient name -->
+            <div>
+                  <mat-form-field appearance="outline">
+                        <mat-label>Name</mat-label>
+                        <input formControlName="patientName" matInput type="text">
+                  </mat-form-field>
+            </div>
+            <!-- Patient full name -->
+            <div>
+                  <mat-form-field appearance="outline">
+                        <mat-label>Full name</mat-label>
+                        <input formControlName="patientFullName" matInput type="text">
+                  </mat-form-field>
+            </div>
+            <!-- Patient email -->
+            <div>
+                  <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input formControlName="patientEmail" matInput type="email">
+                  </mat-form-field>
+            </div>
+            <!-- button submit to save data-->
+            <button mat-raised-button color="primary">Save Patient</button>
+      </form>
+</div>
