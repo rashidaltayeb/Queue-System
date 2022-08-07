@@ -2,3 +2,8 @@
       padding: 0;
       margin: 0;
 }
+.sidenav{
+      background-color: #DDD;
+      padding: 5px;
+      height: 90vh;
+}
