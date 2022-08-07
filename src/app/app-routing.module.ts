@@ -7,19 +7,19 @@ import { ViewPatientComponent } from './component/patient/view-patient/view-pati
 
 const routes: Routes = [
   {
-    path:"patient",
-    component : PatientComponent,
-    children:[
+    path: 'patient',
+    component: PatientComponent,
+    children: [
       {
-        path : 'view',
+        path: 'view',
         component: ViewPatientComponent
       },
       {
-        path : 'new',
-        component : NewPatientComponent
-      }
-    ]
-  }
+        path: 'new',
+        component: NewPatientComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({

@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
 ///////////////
 const materialComponent = [
@@ -28,6 +29,7 @@ const materialComponent = [
   FormsModule,
   ReactiveFormsModule,
   MatInputModule,
+  MatSnackBarModule,
 ];
 @NgModule({
   imports: [materialComponent],

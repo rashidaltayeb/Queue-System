@@ -2,13 +2,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PatientService {
+  URL = 'http://localhost:3000/patient/';
 
-  constructor(private http: HttpClient) { }
-
+  constructor(private http: HttpClient) {}
+  // get
   getPatient() {
-    return this.http.get<any>('http://localhost:3000/patient/');
+    return this.http.get<any>(this.URL);
+  }
+  // post
+  createPatient(data: any) {
+    return this.http.post<any>(this.URL,data)
   }
 }

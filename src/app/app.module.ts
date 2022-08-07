@@ -31,4 +31,4 @@ import { ViewPatientComponent } from './component/patient/view-patient/view-pati
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {} 

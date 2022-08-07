@@ -22,7 +22,10 @@ td {
 table {
       width: 100%;
 }
-
+.services .mat-raised-button{
+      color: brown;
+      width: 50%;
+}
 .mat-form-field {
       font-size: 14px;
       width: 100%;

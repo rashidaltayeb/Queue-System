@@ -10,7 +10,7 @@ import { PatientService } from '../../../services/patient.service';
   styleUrls: ['./view-patient.component.css'],
 })
 export class ViewPatientComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'Name', 'full Name', 'Email', 'Action'];
+  displayedColumns: string[] = ['id', 'Name', 'full Name', 'Email', 'Service'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
