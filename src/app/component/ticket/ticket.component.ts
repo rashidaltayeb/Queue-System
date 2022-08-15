@@ -15,7 +15,14 @@ import {
   styleUrls: ['./ticket.component.css'],
 })
 export class TicketComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'Name', 'Service', 'Ticket', 'Action'];
+  displayedColumns: string[] = [
+    'id',
+    'Name',
+    'Service',
+    'Ticket',
+    'Action',
+    'confirm',
+  ];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -46,16 +53,59 @@ export class TicketComponent implements OnInit {
     });
   }
   //// start service
-  startServices(row: any) {
-    row.service = 2
-    console.log(row);
-    this.PatientApi.startService(row).subscribe({
+  startServices(row: any, id: number) {
+    row.service = 2;
+    row.ticketNumber = this.generateTicketID();
+    this.PatientApi.startService(row, id).subscribe({
       next: (res) => {
         this.getAllPatient();
         this.openSnackBar('service start successfully', 'OK');
       },
       error: (err) => {
         this.openSnackBar('cannot start service to this patient', 'Close');
+      },
+    });
+  }
+  //// cancel service
+  cancelServices(row: any, id: number) {
+    row.service = 1;
+    row.ticketNumber = 0;
+    row.isComing = 0;
+    this.PatientApi.startService(row, id).subscribe({
+      next: (res) => {
+        this.getAllPatient();
+        this.openSnackBar('service canceled successfully', 'OK');
+      },
+      error: (err) => {
+        this.openSnackBar('cannot cancel service to this patient', 'Close');
+      },
+    });
+  }
+  //// is Coming
+  isComing(row: any, id: number) {
+    row.isComing = 1;
+    row.service = 3;
+    this.PatientApi.startService(row, id).subscribe({
+      next: (res) => {
+        this.getAllPatient();
+        this.openSnackBar('confirm success patient on waiting ', 'OK');
+      },
+      error: (err) => {
+        this.openSnackBar('cannot cancel service to this patient', 'Close');
+      },
+    });
+  }
+  //// not Coming
+  notComing(row: any, id: number) {
+    row.isComing = 0;
+    row.service = 2;
+    this.PatientApi.startService(row, id).subscribe({
+      next: (res) => {
+        this.getAllPatient();
+        this.openSnackBar('confirm canceled successfully', 'OK');
+      },
+      error: (err) => {
+        this.openSnackBar('cannot cancel service to this patient', 'Close');
       },
     });
   }
@@ -74,5 +124,25 @@ export class TicketComponent implements OnInit {
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
     });
+  }
+  //////////
+  generateTicketID() {
+    try {
+      var myDate = new Date();
+      var varID: any =
+        myDate.getHours() +
+        '' +
+        myDate.getMinutes() +
+        '' +
+        myDate.getSeconds() +
+        '' +
+        myDate.getMilliseconds();
+      if (varID.Length > 15) {
+        varID = varID.substr(0, 15);
+      }
+      return varID;
+    } catch (err) {
+      console.log(err);
+    }
   }
 }
