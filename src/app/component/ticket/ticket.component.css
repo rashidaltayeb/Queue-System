@@ -23,6 +23,9 @@ table {
       color: brown;
       width: 30%;
 }
+.action-start .mat-raised-button {
+      width: 30%;
+}
 .mat-form-field {
       font-size: 14px;
       width: 100%;
