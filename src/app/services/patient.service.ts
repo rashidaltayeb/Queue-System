@@ -17,7 +17,7 @@ export class PatientService {
     return this.http.post<any>(this.URL, data);
   }
   // put -> change service status
-  startService(data: any) {
-    return this.http.put<any>(this.URL, data)
+  startService(data: any,id : number) {
+    return this.http.put<any>(this.URL+id, data)
   }
 }
