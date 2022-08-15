@@ -28,12 +28,14 @@ export class NewPatientComponent implements OnInit {
       name: ['', Validators.required],
       fullName: ['', Validators.required],
       email: ['', Validators.required],
-      service:[]
+      service: [],
+      ticketNumber:[]
     });
   }
   //// create new patient
   addPatient() {
     this.patientForm.value.service = 1
+    this.patientForm.value.ticketNumber = 0
     if (!this.patientForm.valid)
       return this.openSnackBar('Patient Data is invalid', 'X');
     this.PatientApi.createPatient(this.patientForm.value).subscribe({
