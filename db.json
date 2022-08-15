@@ -4,7 +4,9 @@
       "name": "rashid ",
       "fullName": "rashid altayeb hassan",
       "email": "rashid@gmail.com",
-      "service": 1,
+      "service": 3,
+      "ticketNumber": "185649126",
+      "isComing": 1,
       "id": 1
     },
     {
@@ -12,13 +14,17 @@
       "fullName": "hassan ali hassan",
       "email": "hassan@gmail.com",
       "service": 1,
+      "ticketNumber": 0,
+      "isComing": 0,
       "id": 2
     },
     {
       "name": "ahmed",
       "fullName": "ahmed mohammed ali",
       "email": "ahmed@gmail.com",
-      "service": 1,
+      "service": 3,
+      "ticketNumber": "185726480",
+      "isComing": 1,
       "id": 3
     },
     {
@@ -26,6 +32,8 @@
       "fullName": "rashid",
       "email": "rashid-altayeb-19@outlook.com",
       "service": 1,
+      "ticketNumber": 0,
+      "isComing": 0,
       "id": 4
     },
     {
@@ -33,6 +41,8 @@
       "fullName": "ali ahmed hassan",
       "email": "ali@test.com",
       "service": 1,
+      "ticketNumber": 0,
+      "isComing": 0,
       "id": 5
     },
     {
@@ -40,6 +50,8 @@
       "fullName": "bado alfadel ahmed",
       "email": "bado@test.com",
       "service": 1,
+      "ticketNumber": 0,
+      "isComing": 0,
       "id": 6
     },
     {
@@ -47,13 +59,17 @@
       "fullName": "nazar ahmed albadry",
       "email": "nazar@test.com",
       "service": 1,
+      "ticketNumber": 0,
+      "isComing": 0,
       "id": 7
     },
     {
       "name": "khalid",
       "fullName": "khalid Altayeb Hassan",
       "email": "Khalid@test.com",
-      "service": 1,
+      "service": 2,
+      "ticketNumber": "18178744",
+      "isComing": 0,
       "id": 8
     }
   ]
