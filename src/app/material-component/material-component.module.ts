@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { HttpClientModule } from '@angular/common/http';
 ///////////////
 const materialComponent = [
@@ -30,6 +31,7 @@ const materialComponent = [
   ReactiveFormsModule,
   MatInputModule,
   MatSnackBarModule,
+  MatCheckboxModule,
 ];
 @NgModule({
   imports: [materialComponent],
