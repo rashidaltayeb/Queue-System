@@ -45,21 +45,21 @@
                         <!-- action Column -->
                         <ng-container matColumnDef="Action">
                               <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
-                              <td mat-cell *matCellDef="let row">
+                              <td mat-cell *matCellDef="let row" >
                                     <div *ngIf="row.ticketNumber == 0">
-                                                <div class="action-start">
+                                                <div class="action-start" >
                                                       <button mat-button mat-raised-button (click)="startServices(row,row.id)">Start</button>
                                                 </div>
                                     </div>
                                     <div *ngIf="row.ticketNumber != 0">
-                                          <div class="action">
+                                          <div class="action-cancel"> 
                                                 <button mat-button mat-raised-button (click)="cancelServices(row,row.id)">cancel</button>
                                           </div>
                                     </div>
                               </td>
                         </ng-container>
                         <!-- confirm is coming -->
-                        <ng-container matColumnDef="confirm">
+                        <ng-container matColumnDef="Confirm">
                               <th mat-header-cell *matHeaderCellDef mat-sort-header> confirm </th>
                               <td mat-cell *matCellDef="let row">
                                     <div *ngIf="row.ticketNumber != 0">
