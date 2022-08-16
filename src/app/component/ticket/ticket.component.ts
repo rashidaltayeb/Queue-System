@@ -21,9 +21,11 @@ export class TicketComponent implements OnInit {
     'Service',
     'Ticket',
     'Action',
-    'confirm',
+    'Confirm',
   ];
   dataSource!: MatTableDataSource<any>;
+  minDate = new Date();
+  dateOfComing!: Date | null;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -88,7 +90,13 @@ export class TicketComponent implements OnInit {
     this.PatientApi.startService(row, id).subscribe({
       next: (res) => {
         this.getAllPatient();
-        this.openSnackBar('confirm success patient on waiting ', 'OK');
+        const queue: any = {'patientId': 0}
+        queue.patientId = row.id
+        this.PatientApi.Queue(queue).subscribe({
+          next : (res) =>{
+            this.openSnackBar('confirm success patient on waiting ', 'OK');
+          }
+        })
       },
       error: (err) => {
         this.openSnackBar('cannot cancel service to this patient', 'Close');
