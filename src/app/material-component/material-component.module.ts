@@ -13,7 +13,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { HttpClientModule } from '@angular/common/http';
 ///////////////
 const materialComponent = [
@@ -32,6 +36,10 @@ const materialComponent = [
   MatInputModule,
   MatSnackBarModule,
   MatCheckboxModule,
+  MatCardModule,
+  MatProgressBarModule,
+  MatDatepickerModule,
+  MatMomentDateModule,
 ];
 @NgModule({
   imports: [materialComponent],
