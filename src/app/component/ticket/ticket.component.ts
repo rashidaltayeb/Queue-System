@@ -58,7 +58,7 @@ export class TicketComponent implements OnInit {
   startServices(row: any, id: number) {
     row.service = 2;
     row.ticketNumber = this.generateTicketID();
-    this.PatientApi.startService(row, id).subscribe({
+    this.PatientApi.serviceProgress(row, id).subscribe({
       next: (res) => {
         this.getAllPatient();
         this.openSnackBar('service start successfully', 'OK');
@@ -73,7 +73,7 @@ export class TicketComponent implements OnInit {
     row.service = 1;
     row.ticketNumber = 0;
     row.isComing = 0;
-    this.PatientApi.startService(row, id).subscribe({
+    this.PatientApi.serviceProgress(row, id).subscribe({
       next: (res) => {
         this.getAllPatient();
         this.openSnackBar('service canceled successfully', 'OK');
@@ -87,16 +87,16 @@ export class TicketComponent implements OnInit {
   isComing(row: any, id: number) {
     row.isComing = 1;
     row.service = 3;
-    this.PatientApi.startService(row, id).subscribe({
+    this.PatientApi.serviceProgress(row, id).subscribe({
       next: (res) => {
         this.getAllPatient();
-        const queue: any = {'patientId': 0}
-        queue.patientId = row.id
+        const queue: any = { patientId: 0 };
+        queue.patientId = row.id;
         this.PatientApi.Queue(queue).subscribe({
-          next : (res) =>{
+          next: (res) => {
             this.openSnackBar('confirm success patient on waiting ', 'OK');
-          }
-        })
+          },
+        });
       },
       error: (err) => {
         this.openSnackBar('cannot cancel service to this patient', 'Close');
@@ -107,7 +107,7 @@ export class TicketComponent implements OnInit {
   notComing(row: any, id: number) {
     row.isComing = 0;
     row.service = 2;
-    this.PatientApi.startService(row, id).subscribe({
+    this.PatientApi.serviceProgress(row, id).subscribe({
       next: (res) => {
         this.getAllPatient();
         this.openSnackBar('confirm canceled successfully', 'OK');

@@ -16,7 +16,7 @@ import {
   styleUrls: ['./waiting.component.css'],
 })
 export class WaitingComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'Name', 'Service', 'Ticket'];
+  displayedColumns: string[] = ['id', 'Name', 'Service', 'Ticket','Finished'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -26,7 +26,7 @@ export class WaitingComponent implements OnInit {
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 
   nextQueue: any = [];
-  date = new FormControl(new Date());
+  doctorStatus: any;
 
   constructor(
     private PatientApi: PatientService,
@@ -36,6 +36,7 @@ export class WaitingComponent implements OnInit {
   ngOnInit(): void {
     // this.PatientWaiting();
     this.PatientWaiting();
+    this.getDoctorStatus()
   }
   ///// get all patient
   PatientWaiting() {
@@ -47,8 +48,54 @@ export class WaitingComponent implements OnInit {
         this.dataSource.sort = this.sort;
       },
       error: (err) => {
-        alert('Error while get patient data');
+        this.openSnackBar('Error while get patient data', 'close');
       },
+    });
+  }
+  /////sent to doctor
+  sentToDoctor(id: number) {
+    this.PatientApi.sentToDoctor(id).subscribe({
+      next: (res) => {
+        const status = 1;
+        this.PatientApi.doctorStatus(1, status).subscribe({
+          next: (res) => {
+            this.doctorStatus = res[0].doctorStatus;
+            this.openSnackBar('patient now with the doctor', 'OK');
+          },
+        });
+      },
+      error: (err) => {
+        this.openSnackBar('Error while sent patient to doctor', 'close');
+      },
+    });
+  }
+  /////
+  getDoctorStatus(){
+    this.PatientApi.getDoctorStatus().subscribe({
+      next: (res) => {
+        this.doctorStatus = res[0].doctorStatus;
+        console.log();
+      },
+      error: (err) => {
+        this.openSnackBar('Error while get Doctor Status', 'close');
+      },
+    });
+  }
+  /////Finished doctor
+  FinishedProgress(id : number){
+    /////
+    /**
+     * 1 - delete ticket 
+     * 2 - change doctor status to 0 "not busy"
+     * 3 - Edit patient service to 4 "is completed"
+     *  **/
+  }
+
+  /////
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
     });
   }
   ////

@@ -4,7 +4,7 @@
       "name": "rashid ",
       "fullName": "rashid altayeb hassan",
       "email": "rashid@gmail.com",
-      "service": 3,
+      "service": 4,
       "ticketNumber": "153929758",
       "isComing": 1,
       "dateComing": 0,
@@ -94,6 +94,12 @@
     {
       "patientId": 8,
       "id": 5
+    }
+  ],
+  "doctor":[
+    {
+      "doctorStatus" : 1,
+      "id" : 1
     }
   ]
 }

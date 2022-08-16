@@ -6,7 +6,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PatientService {
   URL = 'http://localhost:3000/patient/';
-  URL2 = 'http://localhost:3000/ticket/';
 
   constructor(private http: HttpClient) {}
   // get
@@ -15,22 +14,35 @@ export class PatientService {
   }
   /// get patient on waiting
   getPatientOnWaiting() {
-    return this.http.get<any>(this.URL + '?service=3&_embed=ticket&_sort=ticketId');
+    return this.http.get<any>(this.URL + '?service=3&service=4&_embed=ticket');
   }
   // post
   createPatient(data: any) {
     return this.http.post<any>(this.URL, data);
   }
   // put -> change service status
-  startService(data: any, id: number) {
+  serviceProgress(data: any, id: number) {
     return this.http.put<any>(this.URL + id, data);
   }
+
+  //////////////////////////////////////////////////////////////////////
+  URL2 = 'http://localhost:3000/ticket/';
   /// add to queue
   Queue(data: any) {
     return this.http.post<any>(this.URL2, data);
   }
-  // /// get sorted queue
-  // getSortedQueue() {
-  //   return this.http.get<any>(this.URL2);
-  // }
+  /// get sorted queue
+  sentToDoctor(id: number) {
+    return this.http.delete<any>(this.URL2 + id);
+  }
+  /////////////////////////////////////////////////////////////////////
+  URL3 = 'http://localhost:3000/doctor/';
+  /// change doctor status
+  doctorStatus(data: any, id: number) {
+    return this.http.put<any>(this.URL3 + id, data);
+  }
+  //// get doctor status
+  getDoctorStatus() {
+    return this.http.get<any>(this.URL3 + '?id=1');
+  }
 }
