@@ -3,7 +3,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['../assets/css/app.component.css']
 })
 export class AppComponent {
   title = 'queue-system';
