@@ -30,3 +30,27 @@ table {
       font-size: 14px;
       width: 100%;
 }
+.not-service {
+      font-weight: 500;
+      color: #FB6107;
+}
+
+.on-hold {
+      font-weight: 500;
+      color: #7E5EFF;
+}
+
+.on-waiting {
+      font-weight: 500;
+      color: #FBB02D;
+}
+
+.on-service {
+      font-weight: 500;
+      color: #4EE0B9;
+}
+
+.complete {
+      font-weight: 500;
+      color: #7CB518;
+}
