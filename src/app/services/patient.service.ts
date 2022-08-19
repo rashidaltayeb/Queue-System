@@ -24,7 +24,15 @@ export class PatientService {
   serviceProgress(data: any, id: number) {
     return this.http.put<any>(this.URL + id, data);
   }
-
+  ////
+  // put -> change service status
+  getPatientWithID(id: number) {
+    return this.http.get<any>(this.URL + '?id=' + id + '');
+  }
+  /// get patient on service
+  getPatientOnService() {
+    return this.http.get<any>(this.URL + '?service=4');
+  }
   //////////////////////////////////////////////////////////////////////
   URL2 = 'http://localhost:3000/ticket/';
   /// add to queue
@@ -32,13 +40,17 @@ export class PatientService {
     return this.http.post<any>(this.URL2, data);
   }
   /// get sorted queue
-  sentToDoctor(id: number) {
+  removeTicket(id: number) {
     return this.http.delete<any>(this.URL2 + id);
+  }
+  //// get all ticket
+  getAllTicket() {
+    return this.http.get<any>(this.URL2);
   }
   /////////////////////////////////////////////////////////////////////
   URL3 = 'http://localhost:3000/doctor/';
   /// change doctor status
-  doctorStatus(data: any, id: number) {
+  doctorStatus(id: number, data: any) {
     return this.http.put<any>(this.URL3 + id, data);
   }
   //// get doctor status
