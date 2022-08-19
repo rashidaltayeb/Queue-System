@@ -17,6 +17,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { HttpClientModule } from '@angular/common/http';
 ///////////////
@@ -40,6 +41,7 @@ const materialComponent = [
   MatProgressBarModule,
   MatDatepickerModule,
   MatMomentDateModule,
+  MatSelectModule,
 ];
 @NgModule({
   imports: [materialComponent],
