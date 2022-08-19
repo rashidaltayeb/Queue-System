@@ -13,7 +13,7 @@
       "name": "hassan",
       "fullName": "hassan ali hassan",
       "gender": "male",
-      "service": 5,
+      "service": 3,
       "ticketNumber": "19275930",
       "isComing": 1,
       "id": 2
@@ -24,7 +24,7 @@
       "gender": "male",
       "service": 3,
       "ticketNumber": "194349143",
-      "isComing": 1,
+      "isComing": 0,
       "id": 3
     },
     {
@@ -83,6 +83,10 @@
     }
   ],
   "ticket": [
+    {
+      "patientId": 2,
+      "id": 1
+    },
     {
       "patientId": 3,
       "id": 2
