@@ -6,8 +6,13 @@ import { PatientComponent } from './component/patient/patient.component';
 import { ViewPatientComponent } from './component/patient/view-patient/view-patient.component';
 import { TicketComponent } from './component/ticket/ticket.component';
 import { WaitingComponent } from './component/waiting/waiting.component';
+import { HomeComponent } from './component/home/home.component';
 
 const routes: Routes = [
+  {
+      path:'',
+      component : HomeComponent
+  },
   {
     path: 'patient',
     component: PatientComponent,
@@ -23,7 +28,7 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'waiting',
+    path: 'Queue',
     component: WaitingComponent,
   },
   {
