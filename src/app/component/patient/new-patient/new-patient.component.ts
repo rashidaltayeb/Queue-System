@@ -9,7 +9,7 @@ import {
 @Component({
   selector: 'app-new-patient',
   templateUrl: './new-patient.component.html',
-  styleUrls: ['./new-patient.component.css'],
+  styleUrls: ['../../../../assets/css/new-patient.component.css'],
 })
 export class NewPatientComponent implements OnInit {
   patientForm!: FormGroup;
