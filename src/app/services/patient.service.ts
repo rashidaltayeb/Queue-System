@@ -33,6 +33,18 @@ export class PatientService {
   getPatientOnService() {
     return this.http.get<any>(this.URL + '?service=4');
   }
+  //// get patient On Queue
+  patientOnQueue() {
+    return this.http.get<any>(this.URL + '?service=3');
+  }
+  //// get completed patient
+  completedPatient() {
+    return this.http.get<any>(this.URL + '?service=5');
+  }
+  //// get patient On Hold
+  patientOnHold() {
+    return this.http.get<any>(this.URL + '?service=2');
+  }
   //////////////////////////////////////////////////////////////////////
   URL2 = 'http://localhost:3000/ticket/';
   /// add to queue
