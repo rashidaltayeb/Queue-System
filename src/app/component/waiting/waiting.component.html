@@ -13,27 +13,16 @@
                                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Ticket Number</th>
                                     <td mat-cell *matCellDef="let row"> {{row.ticketNumber}} </td>
                               </ng-container>
-                              <!-- Service Column -->
-                              <ng-container matColumnDef="Service">
-                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Service </th>
-                                    <td mat-cell *matCellDef="let row">
-                                          <div *ngIf="row.service == 3">
-                                                <span>Next in the Queue</span>
-                                          </div> 
-                                    </td>
-                              </ng-container>
                               <!-- Finished Column-->
                               <ng-container matColumnDef="Finished">
                                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Action</th>
                                     <td mat-cell *matCellDef="let row">
-                                                <div *ngIf="doctorCheck == 1" style="color: orange;">
-                                                      <button mat-button style="color: rgb(34, 33, 33); background-color:rgb(197, 197, 197);"
-                                                            (click)="removeTicket(row,allTicket[0].id)" disabled="true"> doctor is busy
-                                                      </button>
+                                                <div *ngIf="doctorCheck == 1">
+                                                      <button mat-button (click)="removeTicket(row,allTicket[0].id)" disabled="true"> doctor is busy</button>
                                                 </div>
                                                 <div *ngIf="doctorCheck == 0">
-                                                      <div *ngIf="row.service == 3;" style="color: orange;">
-                                                            <button mat-button style="color: rgb(34, 33, 33); background-color:rgb(197, 197, 197);" (click)="removeTicket(row,allTicket[0].id)"> Sent
+                                                      <div *ngIf="row.service == 3;">
+                                                            <button mat-button (click)="removeTicket(row,allTicket[0].id)"> Sent
                                                             </button>
                                                       </div>
                                                 </div>
@@ -52,24 +41,24 @@
 <!-- side bar -->
       <div fxFlex="30">
             <mat-card class="example-card">
-                  <h2>Doctor:</h2>
                   <mat-card-title>
-                        <h3>Doctor Status : <span *ngIf="doctorCheck == 0">Free</span>
+                        <h3><h2>Doctor Status</h2>
+                              <span *ngIf="doctorCheck == 0">Free</span>
                               <span *ngIf="doctorCheck == 1">Busy</span>
                         </h3>
                   </mat-card-title>
                   <mat-card-content>
                         <h2> Patient Information: </h2>
-                        <h3>name : {{patientOnProgress.name}}</h3>
+                        <h3><span>name : </span>{{patientOnProgress.name}}</h3>
                         <mat-divider inset></mat-divider>
-                        <h3>Gender : {{patientOnProgress.gender}}</h3>
+                        <h3><span>Gender : </span>{{patientOnProgress.gender}}</h3>
                         <mat-divider inset></mat-divider>
-                        <h3>Ticket Number : {{patientOnProgress.ticketNumber}}</h3>
+                        <h3><span>Ticket Number : </span>{{patientOnProgress.ticketNumber}}</h3>
                         <mat-divider inset></mat-divider>
                   </mat-card-content>
                   <mat-card-actions>
                         <div *ngIf="doctorCheck == 1">
-                              <button mat-button style="color: rgb(255, 255, 255); background-color:rgb(51, 49, 49);" (click)="patientOut()"> Patient Out
+                              <button mat-button (click)="patientOut()"> Patient Out
                               </button>
                         </div>
                   </mat-card-actions>
