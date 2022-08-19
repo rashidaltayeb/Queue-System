@@ -17,11 +17,15 @@
                         <input formControlName="fullName" matInput type="text">
                   </mat-form-field>
             </div>
-            <!-- Patient email -->
+            <!-- Patient gender -->
             <div>
-                  <mat-form-field appearance="outline">
-                        <mat-label>Email</mat-label>
-                        <input formControlName="email" matInput type="email">
+                  <mat-form-field appearance="fill">
+                        <mat-label>Select Gender</mat-label>
+                        <mat-select [(ngModel)]="selectedValue" name="gender" formControlName="gender">
+                              <mat-option *ngFor="let gender of selectGender" [value]="gender.value">
+                                    {{gender.viewValue}}
+                              </mat-option>
+                        </mat-select>
                   </mat-form-field>
             </div>
             <!-- button submit to save data-->

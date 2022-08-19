@@ -13,6 +13,13 @@ import {
 })
 export class NewPatientComponent implements OnInit {
   patientForm!: FormGroup;
+  selectedValue: any;
+  //
+  //
+  selectGender: any = [
+    { value: 'male', viewValue: 'Male' },
+    { value: 'female', viewValue: 'Female' },
+  ];
   //
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
@@ -27,7 +34,7 @@ export class NewPatientComponent implements OnInit {
     this.patientForm = this.formBuilder.group({
       name: ['', Validators.required],
       fullName: ['', Validators.required],
-      email: ['', Validators.required],
+      gender: ['', Validators.required],
       service: [],
       ticketNumber: [],
       isComing: [],
@@ -35,9 +42,9 @@ export class NewPatientComponent implements OnInit {
   }
   //// create new patient
   addPatient() {
-    this.patientForm.value.service = 1
-    this.patientForm.value.ticketNumber = 0
-    this.patientForm.value.isComing = 0
+    this.patientForm.value.service = 1;
+    this.patientForm.value.ticketNumber = 0;
+    this.patientForm.value.isComing = 0;
     if (!this.patientForm.valid)
       return this.openSnackBar('Patient Data is invalid', 'X');
     this.PatientApi.createPatient(this.patientForm.value).subscribe({

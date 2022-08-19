@@ -14,7 +14,7 @@ import {
   styleUrls: ['./patient.component.css'],
 })
 export class PatientComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'Name', 'full Name', 'Email', 'Action'];
+  displayedColumns: string[] = ['id', 'Name', 'full Name', 'Gender', 'Action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
