@@ -7,7 +7,7 @@ import { PatientService } from '../../../services/patient.service';
 @Component({
   selector: 'app-view-patient',
   templateUrl: './view-patient.component.html',
-  styleUrls: ['./view-patient.component.css'],
+  styleUrls: ['../../../../assets/css/view-patient.component.css'],
 })
 export class ViewPatientComponent implements OnInit {
   displayedColumns: string[] = ['id', 'Name', 'full Name', 'Gender', 'Service'];
