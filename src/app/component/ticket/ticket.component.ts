@@ -12,7 +12,7 @@ import {
 @Component({
   selector: 'app-ticket',
   templateUrl: './ticket.component.html',
-  styleUrls: ['./ticket.component.css'],
+  styleUrls: ['../../../assets/css/ticket.component.css'],
 })
 export class TicketComponent implements OnInit {
   displayedColumns: string[] = [
