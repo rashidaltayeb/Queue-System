@@ -1,9 +1,24 @@
-<mat-list>
-      <mat-list-item routerLink=""><button mat-raised-button>Home</button></mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item routerLink="service"><button mat-raised-button>Service</button></mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item routerLink="patient"><button mat-raised-button>Patient </button></mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item routerLink="Queue"><button mat-raised-button>Queue </button></mat-list-item>
-</mat-list>
+<div fxLayout="row" fxLayoutAlign="space-evenly none">
+      <div fxFlex="30">
+            <mat-list>
+                  <mat-list-item routerLink=""><mat-icon>home</mat-icon></mat-list-item>
+                  <mat-divider></mat-divider>
+                  <mat-list-item routerLink="service"><mat-icon>fact_check</mat-icon></mat-list-item>
+                  <mat-divider></mat-divider>
+                  <mat-list-item routerLink="patient"><mat-icon>personal_injury</mat-icon></mat-list-item>
+                  <mat-divider></mat-divider>
+                  <mat-list-item routerLink="Queue"><mat-icon>compare_arrows</mat-icon></mat-list-item>
+            </mat-list>
+      </div>
+      <div fxFlex>
+            <mat-list>
+                  <mat-list-item routerLink=""><button mat-button>Home</button></mat-list-item>
+                  <mat-divider></mat-divider>
+                  <mat-list-item routerLink="service"><button mat-button>Service</button></mat-list-item>
+                  <mat-divider></mat-divider>
+                  <mat-list-item routerLink="patient"><button mat-button>Patient </button></mat-list-item>
+                  <mat-divider></mat-divider>
+                  <mat-list-item routerLink="Queue"><button mat-button>Queue </button></mat-list-item>
+            </mat-list>
+      </div>
+</div>
