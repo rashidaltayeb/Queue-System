@@ -3,18 +3,17 @@
     {
       "name": "rashid ",
       "fullName": "rashid altayeb hassan",
-      "email": "rashid@gmail.com",
-      "service": 4,
+      "gender": "male",
+      "service": 3,
       "ticketNumber": "153929758",
       "isComing": 1,
-      "dateComing": 0,
       "id": 1
     },
     {
       "name": "hassan",
       "fullName": "hassan ali hassan",
-      "email": "hassan@gmail.com",
-      "service": 3,
+      "gender": "male",
+      "service": 5,
       "ticketNumber": "19275930",
       "isComing": 1,
       "id": 2
@@ -22,34 +21,34 @@
     {
       "name": "ahmed",
       "fullName": "ahmed mohammed ali",
-      "email": "ahmed@gmail.com",
-      "service": 2,
+      "gender": "male",
+      "service": 3,
       "ticketNumber": "194349143",
-      "isComing": 0,
+      "isComing": 1,
       "id": 3
     },
     {
-      "name": "rashid",
-      "fullName": "rashid",
-      "email": "rashid-altayeb-19@outlook.com",
+      "name": "sami",
+      "fullName": "sami",
+      "gender": "male",
       "service": 3,
       "ticketNumber": 15515554,
       "isComing": 1,
       "id": 4
     },
     {
-      "name": "ali",
-      "fullName": "ali ahmed hassan",
-      "email": "ali@test.com",
+      "name": "hassan",
+      "fullName": "hassan ali hassan",
+      "gender": "male",
       "service": 3,
-      "ticketNumber": "162016894",
+      "ticketNumber": "19275930",
       "isComing": 1,
       "id": 5
     },
     {
       "name": "bado",
       "fullName": "bado alfadel ahmed",
-      "email": "bado@test.com",
+      "gender": "male",
       "service": 2,
       "ticketNumber": "2021982",
       "isComing": 0,
@@ -58,7 +57,7 @@
     {
       "name": "nazar",
       "fullName": "nazar ahmed albadry",
-      "email": "nazar@test.com",
+      "gender": "male",
       "service": 2,
       "ticketNumber": "2025957",
       "isComing": 0,
@@ -67,20 +66,25 @@
     {
       "name": "khalid",
       "fullName": "khalid Altayeb Hassan",
-      "email": "Khalid@test.com",
+      "gender": "male",
       "service": 3,
       "ticketNumber": "19510619",
       "isComing": 1,
       "id": 8
+    },
+    {
+      "name": "reem",
+      "fullName": "reem ahmed mohemmed",
+      "gender": "female",
+      "service": 3,
+      "ticketNumber": "111655467",
+      "isComing": 1,
+      "id": 9
     }
   ],
   "ticket": [
     {
-      "patientId": 1,
-      "id": 1
-    },
-    {
-      "patientId": 5,
+      "patientId": 3,
       "id": 2
     },
     {
@@ -88,18 +92,22 @@
       "id": 3
     },
     {
-      "patientId": 2,
+      "patientId": 1,
       "id": 4
     },
     {
       "patientId": 8,
       "id": 5
+    },
+    {
+      "patientId": 9,
+      "id": 6
     }
   ],
-  "doctor":[
+  "doctor": [
     {
-      "doctorStatus" : 1,
-      "id" : 1
+      "id": 1,
+      "status": 0
     }
   ]
 }
