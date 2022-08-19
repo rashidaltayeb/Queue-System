@@ -1,19 +1,29 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="#1F9F84" fxLayout="row" fxLayoutAlign="space-between none">
       <mat-toolbar-row>
-            <span class="example-spacer"></span>
-            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-                  <mat-icon>menu</mat-icon>
-            </button>
-            <span>Queue System</span>
+            <div fxFlex="80">
+                  <span class="example-spacer"></span>
+                  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                        <mat-icon>medication_liquid</mat-icon>
+                  </button>
+                  <span>Queue System</span>
+            </div>
+            <div class="profile" fxFlex>
+                  <div fxLayout="row" fxLayoutAlign="start center">
+                        <div fxFlex="19">
+                              <img src="/assets/img/me.jpg" alt="">
+                        </div>
+                        <div fxFlex>
+                              <span>Rashid Altayeb Hassan</span>
+                        </div>
+                  </div>
+            </div>
       </mat-toolbar-row>
 </mat-toolbar>
 <div fxLayout="row" fxLayoutAlign="space-between">
-      <div class="sidenav" fxFlex="10" fxLayout="column">
+      <div class="sidenav" fxFlex="12" fxLayout="column">
                   <div fxFlex="30">
                         <app-side-nav></app-side-nav>
                   </div>
-                  <div fxFlex="40" > </div>
-                  <div fxFlex="30">  </div>
       </div>
       <div class ="main-component" fxFlex>
             <router-outlet></router-outlet>
