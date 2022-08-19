@@ -1,0 +1,14 @@
+.mat-raised-button{
+      width: 100%;
+      margin-left: -15%;
+      background-color: #f5f5f5;
+}
+.mat-raised-button:hover {
+      width: 100%;
+      margin-left: -15%;
+      background-color: #1F9F84;
+}
+.mat-icon{
+      color: #1F9F84;
+}
+
