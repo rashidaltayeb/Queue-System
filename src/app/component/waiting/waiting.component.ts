@@ -16,7 +16,7 @@ import {
   styleUrls: ['./waiting.component.css'],
 })
 export class WaitingComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'Name', 'Service', 'Ticket','Finished'];
+  displayedColumns: string[] = ['Name', 'Service', 'Ticket', 'Finished'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -25,8 +25,13 @@ export class WaitingComponent implements OnInit {
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 
+  patientUpdate: any
+  updateService : any
   nextQueue: any = [];
+  allTicket: any = [];
+  patientOnProgress: any = [];
   doctorStatus: any;
+  doctorCheck: any
 
   constructor(
     private PatientApi: PatientService,
@@ -34,18 +39,15 @@ export class WaitingComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.PatientWaiting();
-    this.PatientWaiting();
-    this.getDoctorStatus()
+    this.getDoctorStatus();
+    this.queueControl();
   }
   ///// get all patient
-  PatientWaiting() {
-    this.PatientApi.getPatientOnWaiting().subscribe({
+  getPatientWithID(id: number) {
+    this.PatientApi.getPatientWithID(id).subscribe({
       next: (res) => {
-        this.nextQueue = res[0];
+        this.patientUpdate = res[0];
         this.dataSource = new MatTableDataSource(res);
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
       },
       error: (err) => {
         this.openSnackBar('Error while get patient data', 'close');
@@ -54,15 +56,21 @@ export class WaitingComponent implements OnInit {
   }
   /////sent to doctor
   sentToDoctor(id: number) {
-    this.PatientApi.sentToDoctor(id).subscribe({
+    ///
+    this.patientUpdate.service = 4;
+    this.PatientApi.serviceProgress(this.updateService, this.patientUpdate.id).subscribe({
       next: (res) => {
-        const status = 1;
-        this.PatientApi.doctorStatus(1, status).subscribe({
-          next: (res) => {
-            this.doctorStatus = res[0].doctorStatus;
-            this.openSnackBar('patient now with the doctor', 'OK');
-          },
-        });
+            this.doctorStatus.status = 1;
+            this.PatientApi.doctorStatus(1, this.doctorStatus).subscribe({
+              next: (res) => {
+                this.getDoctorStatus();
+                this.openSnackBar('patient now with the doctor', 'OK');
+              },
+              error: (err) => {
+                this.openSnackBar('can`t change doctor status', 'close');
+              },
+            });
+    this.PatientOn();
       },
       error: (err) => {
         this.openSnackBar('Error while sent patient to doctor', 'close');
@@ -70,27 +78,85 @@ export class WaitingComponent implements OnInit {
     });
   }
   /////
-  getDoctorStatus(){
+  getDoctorStatus() {
     this.PatientApi.getDoctorStatus().subscribe({
       next: (res) => {
-        this.doctorStatus = res[0].doctorStatus;
-        console.log();
+        this.doctorStatus = res[0];
+        this.doctorCheck = this.doctorStatus.status
       },
       error: (err) => {
         this.openSnackBar('Error while get Doctor Status', 'close');
       },
     });
   }
-  /////Finished doctor
-  FinishedProgress(id : number){
-    /////
-    /**
-     * 1 - delete ticket 
-     * 2 - change doctor status to 0 "not busy"
-     * 3 - Edit patient service to 4 "is completed"
-     *  **/
+  ////// control in the queue
+  queueControl() {
+    this.PatientApi.getAllTicket().subscribe({
+      next: (res) => {
+        this.allTicket = '';
+        this.allTicket = res;
+        this.PatientOn();
+        this.getPatientWithID(this.allTicket[0].patientId);
+      },
+      error: (err) => {
+        this.openSnackBar('Error while get patient data', 'close');
+      },
+    });
   }
-
+  /////
+  removeTicket(row : any,id: number) {
+    this.updateService = row
+    this.PatientApi.removeTicket(id).subscribe({
+      next: (res) => {
+        this.PatientApi.getAllTicket().subscribe({
+          next: (res) => {
+            this.allTicket = res;
+            this.sentToDoctor(this.allTicket[0].patientId);
+            this.queueControl();
+            this.getPatientWithID(this.allTicket[0].patientId);
+          },
+        });
+        this.openSnackBar('successfully sent to the doctor', 'ok');
+      },
+    });
+  }
+  ////get patient on services
+  PatientOn() {
+    this.PatientApi.getPatientOnService().subscribe({
+      next: (res) => {
+        if (res.length != 1){
+          this.patientOnProgress = []
+          return;
+        } 
+        this.patientOnProgress = res[0];
+      },
+    });
+  }
+  /////
+  patientOut(){
+    this.patientOnProgress.service = 5;
+    this.PatientApi.serviceProgress(
+      this.patientOnProgress,
+      this.patientOnProgress.id
+    ).subscribe({
+      next: (res) => {
+        this.doctorStatus.status = 0;
+        this.PatientApi.doctorStatus(1, this.doctorStatus).subscribe({
+          next: (res) => {
+            this.getDoctorStatus();
+            this.openSnackBar('patient finished successfully', 'OK');
+          },
+          error: (err) => {
+            this.openSnackBar('can`t change doctor status', 'close');
+          },
+        });
+        this.PatientOn();
+      },
+      error: (err) => {
+        this.openSnackBar('Error while sent patient to doctor', 'close');
+      },
+    });
+  }
   /////
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
