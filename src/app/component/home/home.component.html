@@ -10,7 +10,7 @@
                   </div>
                   <div class="card-icon" fxLayout="row" fxLayoutAlign="center center">
                         <div fxFlex="100">
-                              <h1>13</h1>
+                              <h1>{{patientOnQueueCount}}</h1>
                         </div>
                   </div>
             </div>
@@ -21,11 +21,11 @@
                         </div>
                         <div fxFleX>
                               <h2>Completed Patient</h2>
-                        </div>
+                        </div> 
                   </div>
                   <div class="card-icon" fxLayout="row" fxLayoutAlign="center center">
                         <div fxFlex="100">
-                              <h1>50</h1>
+                              <h1>{{patientCompleted}}</h1>
                         </div>
                   </div>
             </div>
@@ -35,12 +35,12 @@
                               <mat-icon>hourglass_empty</mat-icon>
                         </div>
                         <div fxFleX>
-                              <h2>Patient On Waiting</h2>
+                              <h2>Patient On Hold</h2>
                         </div>
                   </div>
                   <div class="card-icon" fxLayout="row" fxLayoutAlign="center center">
                         <div fxFlex="100">
-                              <h1>20</h1>
+                              <h1>{{patientOnHoldCount}}</h1>
                         </div>
                   </div>
             </div>
@@ -54,7 +54,10 @@
                         </div>
                   </div>
                   <div class="card-icon" fxLayout="row" fxLayoutAlign="center center">
-                        <div fxFlex="100">
+                        <div fxFlex="100" *ngIf="doctorCheck == 0">
+                              <h1>Free</h1>
+                        </div>
+                        <div fxFlex="100" *ngIf="doctorCheck == 1">
                               <h1>Busy</h1>
                         </div>
                   </div>
