@@ -13,6 +13,7 @@ import { NewPatientComponent } from './component/patient/new-patient/new-patient
 import { ViewPatientComponent } from './component/patient/view-patient/view-patient.component';
 import { WaitingComponent } from './component/waiting/waiting.component';
 import { TicketComponent } from './component/ticket/ticket.component';
+import { HomeComponent } from './component/home/home.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { TicketComponent } from './component/ticket/ticket.component';
     ViewPatientComponent,
     WaitingComponent,
     TicketComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
