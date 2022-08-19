@@ -16,7 +16,7 @@ import {
   styleUrls: ['../../../assets/css/waiting.component.css'],
 })
 export class WaitingComponent implements OnInit {
-  displayedColumns: string[] = ['Name', 'Service', 'Ticket', 'Finished'];
+  displayedColumns: string[] = ['Name', 'Ticket', 'Finished'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
