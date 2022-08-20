@@ -6,7 +6,6 @@ th,
 td {
       font-size: 16px;
 }
-
 .mat-button {
       background-color: #1F9F84;
       color: #f5f5f5;
@@ -34,6 +33,10 @@ table{
 .mat-form-field {
       font-size: 14px;
       width: 100%;
+}
+.lottie{
+      margin: 5em;
+      text-align: center;
 }
 h3{ 
       margin-top: 20px;
