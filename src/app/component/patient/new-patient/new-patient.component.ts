@@ -39,6 +39,8 @@ export class NewPatientComponent implements OnInit {
       ticketNumber: [],
       isComing: [],
     });
+    ///
+    this.openSnackBar('Patient Data Has been Added Successfully', 'OK');
   }
   //// create new patient
   addPatient() {
@@ -63,6 +65,7 @@ export class NewPatientComponent implements OnInit {
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
       duration: 5 * 1000,
+      panelClass: ['color-snackbar'],
     });
   }
 }
