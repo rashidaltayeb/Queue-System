@@ -5,24 +5,25 @@ This project control patients when it visiting the doctor it sort and handling t
 ## Project Tool
 
 - Angular Cli v13.0.3
-- Angular Matrial 
+- Angular Material 
 - Json-server as Fake API
 - Angular Flex-Layout 
 
-## Home component
+## 1- Home component
 ![Rashid](https://github.com/rashidaltayeb/Queue-System/blob/main/src/assets/screenshot/HomePage.png)
 
 
-## new Patient component
+## 2- new Patient component
 ![Rashid](https://github.com/rashidaltayeb/Queue-System/blob/main/src/assets/screenshot/newPatient.png)
 
-## view Patient component
+## 3- view Patient component
 ![Rashid](https://github.com/rashidaltayeb/Queue-System/blob/main/src/assets/screenshot/viewPatient.png)
 
-## Service component
+## 4- Service component
 ![Rashid](https://github.com/rashidaltayeb/Queue-System/blob/main/src/assets/screenshot/services.png)
 
-## Queue component
+## 5- Queue component
 ![Rashid](https://github.com/rashidaltayeb/Queue-System/blob/main/src/assets/screenshot/inQueue.png)
 
-## Not including Responsive
+## *Note
+### Not support Responsive 
