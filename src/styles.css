@@ -2,13 +2,14 @@
 :root{
       --main-color : #1F9F84;
       --background-color : #f5f5f5;
+      --radius :10%;
 }     
-html, body { 
-      height: 100%; 
-}
+
 body {
       font-family: Roboto, "Helvetica Neue", sans-serif;
-      margin: 0; 
+      margin: 0;
+      height: 100vh;
+      overflow: hidden; 
 }
 .color-snackbar {
       font-size: 16px;
@@ -17,7 +18,8 @@ body {
       color: var(--background-color);
 }
 .color-snackbar button {
-      background-color: var(--background-color);;
+      background-color: var(--background-color);
+      border-radius: var(--radius);
       color: #000;
 }
 .error-snackbar {
@@ -29,7 +31,7 @@ body {
 .error-snackbar button {
       font-size: 16px;
       font-weight: bold;
-      border-radius: 10%;
+      border-radius: var(--radius);
       background-color: var(--background-color);;
       color: #000;
 }
