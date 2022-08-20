@@ -39,8 +39,6 @@ export class NewPatientComponent implements OnInit {
       ticketNumber: [],
       isComing: [],
     });
-    ///
-    this.openSnackBar('Patient Data Has been Added Successfully', 'OK');
   }
   //// create new patient
   addPatient() {
@@ -48,14 +46,14 @@ export class NewPatientComponent implements OnInit {
     this.patientForm.value.ticketNumber = 0;
     this.patientForm.value.isComing = 0;
     if (!this.patientForm.valid)
-      return this.openSnackBar('Patient Data is invalid', 'X');
+      return this.openErrorsSnackBar('Patient Data is invalid', 'X');
     this.PatientApi.createPatient(this.patientForm.value).subscribe({
       next: (res) => {
         this.patientForm.value == null;
         this.openSnackBar('Patient Data Has been Added Successfully', 'OK');
       },
       error: (err) => {
-        return this.openSnackBar('Patient Data is invalid', 'X');
+        return this.openErrorsSnackBar('Patient Data is invalid', 'X');
       },
     });
   }
@@ -66,6 +64,15 @@ export class NewPatientComponent implements OnInit {
       verticalPosition: this.verticalPosition,
       duration: 5 * 1000,
       panelClass: ['color-snackbar'],
+    });
+  }
+  /// errors snack bar
+  openErrorsSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      duration: 5 * 1000,
+      panelClass: ['error-snackbar'],
     });
   }
 }

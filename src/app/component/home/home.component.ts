@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
   }
   /////
   patientOnHold() {
-    this.PatientApi.completedPatient().subscribe({
+    this.PatientApi.patientOnHold().subscribe({
       next: (res) => {
         this.patientOnHoldCount = res.length;
       },

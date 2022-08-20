@@ -56,7 +56,7 @@ export class WaitingComponent implements OnInit {
         this.dataSource = new MatTableDataSource(res);
       },
       error: (err) => {
-        this.openSnackBar('Error while get patient data', 'close');
+        this.openErrorsSnackBar('Error while get patient data', 'close');
       },
     });
   }
@@ -76,13 +76,13 @@ export class WaitingComponent implements OnInit {
             this.openSnackBar('patient now with the doctor', 'OK');
           },
           error: (err) => {
-            this.openSnackBar('can`t change doctor status', 'close');
+            this.openErrorsSnackBar('can`t change doctor status', 'close');
           },
         });
         this.PatientOn();
       },
       error: (err) => {
-        this.openSnackBar('Error while sent patient to doctor', 'close');
+        this.openErrorsSnackBar('Error while sent patient to doctor', 'close');
       },
     });
   }
@@ -94,7 +94,7 @@ export class WaitingComponent implements OnInit {
         this.doctorCheck = this.doctorStatus.status;
       },
       error: (err) => {
-        this.openSnackBar('Error while get Doctor Status', 'close');
+        this.openErrorsSnackBar('Error while get Doctor Status', 'close');
       },
     });
   }
@@ -108,7 +108,7 @@ export class WaitingComponent implements OnInit {
         this.getPatientWithID(this.allTicket[0].patientId);
       },
       error: (err) => {
-        this.openSnackBar('Error while get patient data', 'close');
+        this.openErrorsSnackBar('Error while get patient data', 'close');
       },
     });
   }
@@ -156,13 +156,13 @@ export class WaitingComponent implements OnInit {
             this.openSnackBar('patient finished successfully', 'OK');
           },
           error: (err) => {
-            this.openSnackBar('can`t change doctor status', 'close');
+            this.openErrorsSnackBar('can`t change doctor status', 'close');
           },
         });
         this.PatientOn();
       },
       error: (err) => {
-        this.openSnackBar('Error while sent patient to doctor', 'close');
+        this.openErrorsSnackBar('Error while sent patient to doctor', 'close');
       },
     });
   }
@@ -171,6 +171,17 @@ export class WaitingComponent implements OnInit {
     this._snackBar.open(message, action, {
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
+      duration: 5 * 1000,
+      panelClass: ['color-snackbar'],
+    });
+  }
+  ////
+  openErrorsSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      duration: 5 * 1000,
+      panelClass: ['error-snackbar'],
     });
   }
   ////

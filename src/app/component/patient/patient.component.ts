@@ -35,13 +35,12 @@ export class PatientComponent implements OnInit {
   getAllPatient() {
     this.PatientApi.getPatient().subscribe({
       next: (res) => {
-        // this.openSnackBar('this is just for test', 'Close');
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },
       error: (err) => {
-        this.openSnackBar('Error while get patient data', 'Close');
+        this.openErrorsSnackBar('Error while get patient data', 'Close');
       },
     });
   }
@@ -58,6 +57,15 @@ export class PatientComponent implements OnInit {
     this._snackBar.open(message, action, {
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
+    });
+  }
+  /// errors snack bar
+  openErrorsSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      duration: 5 * 1000,
+      panelClass: ['error-snackbar'],
     });
   }
 }

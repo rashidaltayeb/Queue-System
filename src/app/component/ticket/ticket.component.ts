@@ -50,7 +50,7 @@ export class TicketComponent implements OnInit {
         this.dataSource.sort = this.sort;
       },
       error: (err) => {
-        alert('Error while get patient data');
+        this.openErrorsSnackBar('Error while get patient data', 'Close');
       },
     });
   }
@@ -64,7 +64,10 @@ export class TicketComponent implements OnInit {
         this.openSnackBar('service start successfully', 'OK');
       },
       error: (err) => {
-        this.openSnackBar('cannot start service to this patient', 'Close');
+        this.openErrorsSnackBar(
+          'cannot start service to this patient',
+          'Close'
+        );
       },
     });
   }
@@ -79,7 +82,10 @@ export class TicketComponent implements OnInit {
         this.openSnackBar('service canceled successfully', 'OK');
       },
       error: (err) => {
-        this.openSnackBar('cannot cancel service to this patient', 'Close');
+        this.openErrorsSnackBar(
+          'cannot cancel service to this patient',
+          'Close'
+        );
       },
     });
   }
@@ -99,7 +105,10 @@ export class TicketComponent implements OnInit {
         });
       },
       error: (err) => {
-        this.openSnackBar('cannot cancel service to this patient', 'Close');
+        this.openErrorsSnackBar(
+          'cannot cancel service to this patient',
+          'Close'
+        );
       },
     });
   }
@@ -113,7 +122,10 @@ export class TicketComponent implements OnInit {
         this.openSnackBar('confirm canceled successfully', 'OK');
       },
       error: (err) => {
-        this.openSnackBar('cannot cancel service to this patient', 'Close');
+        this.openErrorsSnackBar(
+          'cannot cancel service to this patient',
+          'Close'
+        );
       },
     });
   }
@@ -131,6 +143,17 @@ export class TicketComponent implements OnInit {
     this._snackBar.open(message, action, {
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
+      duration: 5 * 1000,
+      panelClass: ['color-snackbar'],
+    });
+  }
+  ///////
+  openErrorsSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      duration: 5 * 1000,
+      panelClass: ['error-snackbar'],
     });
   }
   //////////
