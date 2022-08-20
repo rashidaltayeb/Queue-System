@@ -9,6 +9,8 @@ import {
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
+import { AnimationItem } from 'lottie-web';
+import { AnimationOptions } from 'ngx-lottie';
 
 @Component({
   selector: 'app-waiting',
@@ -24,6 +26,10 @@ export class WaitingComponent implements OnInit {
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
+
+  options: AnimationOptions = {
+    path: '/assets/img/doctorWaiting.json',
+  };
 
   patientUpdate: any;
   updateService: any;
@@ -175,5 +181,8 @@ export class WaitingComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+  animationCreated(animationItem: AnimationItem): void {
+    console.log(animationItem);
   }
 }
