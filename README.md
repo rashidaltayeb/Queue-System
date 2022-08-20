@@ -1,6 +1,6 @@
 # QueueSystem
 
-This project control patients when it visied the doctor it sort and handling the Queue so First patient come it well be the First one Meet doctor. 
+This project control patients when it visiting the doctor it sort and handling the Queue so First patient come it well be the First one Meet doctor. 
 
 ![Rashid](https://github.com/rashidaltayeb/Queue-System/blob/main/src/assets/screenshot/HomePage.png)
 
