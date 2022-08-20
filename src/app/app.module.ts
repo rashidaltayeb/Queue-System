@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 ////  Flex-layout
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +15,15 @@ import { ViewPatientComponent } from './component/patient/view-patient/view-pati
 import { WaitingComponent } from './component/waiting/waiting.component';
 import { TicketComponent } from './component/ticket/ticket.component';
 import { HomeComponent } from './component/home/home.component';
+import { LottieModule } from 'ngx-lottie';
+
+//// import lottie 
+import player from 'lottie-web';
+
+// Export this function
+export function playerFactory() {
+  return player;
+}
 
 @NgModule({
   declarations: [
@@ -24,7 +34,7 @@ import { HomeComponent } from './component/home/home.component';
     ViewPatientComponent,
     WaitingComponent,
     TicketComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +43,8 @@ import { HomeComponent } from './component/home/home.component';
     FlexLayoutModule,
     MaterialComponentModule,
     HttpClientModule,
+    CommonModule,
+    LottieModule.forRoot({ player: playerFactory }),
   ],
   providers: [],
   bootstrap: [AppComponent],
