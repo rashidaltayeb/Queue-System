@@ -10,13 +10,17 @@ import { HomeComponent } from './component/home/home.component';
 
 const routes: Routes = [
   {
-      path:'',
-      component : HomeComponent
+    path: '',
+    component: HomeComponent,
   },
   {
     path: 'patient',
     component: PatientComponent,
     children: [
+      {
+        path: '',
+        component: ViewPatientComponent,
+      },
       {
         path: 'view',
         component: ViewPatientComponent,
